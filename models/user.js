@@ -14,7 +14,7 @@ var UserSchema = mongoose.Schema({
 	email: {
 		type: String
 	},
-	image: Array,
+	image: {type: Array, default: [{url: '/images/pic01.jpg'}]},
 	tracks: Array
 })
 
@@ -49,7 +49,7 @@ UserSchema.methods.summary = function(){
 	var summary = {
 		email: this.email,
 		username: this.username,
-		image: this.image[0] ? this.image[0].url+'=s96-c' :'',
+		image: this.image[0].url.indexOf('/images/')==0 ? this.image[0].url : this.image[0].url+'=s96-c',
 		id: this._id.toString(),
 		tracks: this.tracks
 	}

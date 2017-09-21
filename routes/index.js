@@ -77,7 +77,7 @@ router.get('/user/:id', function(req, res, next) {
 
 });
 // Register
-router.get('/admin', function(req, res){
+router.get('/admin',ensureAuthenticated, function(req, res){
 		var user = req.user.summary()
 		var tracks = user.tracks
 		tracks.forEach(function(track,i){
@@ -93,7 +93,7 @@ function ensureAuthenticated(req, res, next){
 		
 		return next();
 	} else {
-		res.send({info: false})
+		res.redirect('/')
 	}
 }
 

@@ -5,7 +5,7 @@
 	})
 	var upload = null
 
-	$('#btn-upload').click(function(event){
+	$('.btn-upload').click(function(event){
 		event.preventDefault()
 		turbo.uploadFile(function(err, data){
 			if (err){
@@ -26,6 +26,7 @@
 	})
 
 	$('#profile-icon').click(function(event){
+
 		event.preventDefault()
 		turbo.uploadFile(function(err, data){
 			if (err){
@@ -44,6 +45,7 @@
 			})
 		})
 	})
+	
 	$('.channel').click(function(event){
 		event.preventDefault()
 		var id = $(this).attr('id')

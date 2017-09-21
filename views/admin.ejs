@@ -1,130 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+  Phantom by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <title>JukeBox</title>
-
-  <!-- Styles -->
-  <script type="text/javascript" src="/js/ejs.min.js" charset="utf-8"></script>
+  <title>Phantom by HTML5 UP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800|Dosis:300,600">
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
 
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/custom.css" />
+  <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+  <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+  <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
 </head>
+<body>
+  <!-- Wrapper -->
+  <div id="wrapper">
 
-<body class="body-scrolled">
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
 
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">JukeBox</span>
+        </a>
 
-  <!-- Topbar -->
-  <nav class="nav">
-    <div class="container">
-      <div class="topbar">      
-        <div class="topbar-left"><a id='logo' href="/"><h1>JukeBox</h1></a></div>
-        <div class="topbar-right">
-          <a class="sign-in" href="">Sign in</a>
-          <a class="sign-up" href="/users/login">Sign up</a>
-        </div>
+        <!-- Nav -->
+        <nav>
+          <ul>
+            <li><a href="#menu">Menu</a></li>
+          </ul>
+        </nav>
+
       </div>
+    </header>
 
+    <!-- Menu -->
+    <nav id="menu">
+
+      <section>
+        <a href="users/logout" class="button special">Log out</a>
+      </section>
     </nav>
-    <!-- END Topbar -->
 
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+        <div class="row">
+              <div class="9u">
+                    <h3>Default</h3>
+                    <div class="table-wrapper">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Play</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% for(var i = 0; i < user.tracks.length; i++){%>
+                          <tr>
+                            <td><%= user.tracks[i].name %></td>
+                            <td><%= user.tracks[i].timestamp %></td>
+                            <td>                 
+                              <a style="border: none" target="_blank" href="<%= user.tracks[i].url %>">
+                                <img width="20" src="/images/play.png" alt="...">
+                              </a>
+                            </td>
+                          </tr>
+                          <%}%>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <section class="3u text-center">
+                    <h2><% if(user){%> <%= user.username %> <%} %></h2>
+                    <p id="profile-icon">Click to change</p>
+                    <div class="box alt">
+                      <div class="row uniform">
+                        <div id="profile-icon" class="12u"><span class="image fit"><img src="<% if(user.image[0]) {%><%= user.image %><%}%>" alt="" /></span></div>
+                      </div>
+                      <a href="#" style="margin-top: 10px;" class="button btn-upload icon fa-upload">Upload</a>
+                    </div>
+                  </section>
+                </div>
+              </div>
+    </div>
+    <div id="aplayer" class="aplayer"></div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <section>
+          <h2>Follow</h2>
+          <ul class="icons">
+            <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+            <li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+            <li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+            <li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+          </ul>
+        </section>
+        <ul class="copyright">
+          <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </footer>
 
+  </div>
 
-
-
-    <!-- Main container -->
-    <main class="main-content">
-
-      <section class="section">
-        <div class="container">
-
-          <div class="row">
-            <div class="col-sm-8">
-            <div id="aplayer" class="aplayer"></div>
-              <div class="tracklist"> 
-                <% for(var i = 0; i < user.tracks.length; i++){%>
-                <div class="track"> 
-                 <a target="_blank" href="<%= user.tracks[i].url %>">
-                  <img src="/img/play.png" alt="...">
-                </a>
-                <a target="_blank" href='<%= user.tracks[i].url %>'>
-                 <h5><%= user.tracks[i].name %></h5>
-               </a>
-               <p><%= user.tracks[i].timestamp %></p>
-               <h4 class="share">Share</h4>
-             </div>
-             <hr>
-             <%}%>
-           </div>
-
-         </div>
-
-
-         <div class="col-sm-4">
-          <div class="profile text-center">
-            <div id="profile-icon"><img src="<% if(user.image[0]) {%><%= user.image %><%}%>"  alt="">
-
-            </div>
-            <span >Click to change</span>
-            <h3><% if(user){%> <%= user.username %> <%} %></h3>
-            <hr>
-            <ul>
-             <li><%= user.tracks.length %> Tracks</li>
-           </ul>
-           <button id="btn-upload" class="btn btn-info">Upload Track</button>
-         </div>
-
-
-       </div>
-     </div>
-
-
-
-   </div>
- </section>
-
-
-
-
-
-
-</main>
-<!-- END Main container -->
-
-
-
-
-
-
-<!-- Footer -->
-<footer class="site-footer">
-
-</footer>
-<!-- END Footer -->
-
-
-
-<!-- Scripts -->
-<script src="https://cdn.turbo360-dev.com/dist/turbo.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>
-<script src="https://momentjs.com/downloads/moment.js"></script>
-<script
-src="https://code.jquery.com/jquery-3.2.1.min.js"
-integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
-<script src="/js/dropzone.js"></script>
-<script src="/js/app.js"></script>
-
+  <!-- Scripts -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="https://cdn.turbo360-dev.com/dist/turbo.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>
+  <script src="/assets/js/dropzone.js"></script>
+  <script src="/assets/js/skel.min.js"></script>
+  <script src="/assets/js/util.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+  <script src="/assets/js/main.js"></script>
 
 </body>
 </html>

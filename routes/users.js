@@ -25,6 +25,8 @@ router.post('/register', function(req, res){
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
+	console.log(req.body)
+
 	// Validation
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
@@ -36,6 +38,7 @@ router.post('/register', function(req, res){
 	var errors = req.validationErrors();
 
 	if(errors){
+		console.log(errors)
 		res.render('register',{
 			errors:errors
 		});
@@ -46,13 +49,14 @@ router.post('/register', function(req, res){
 			password: password
 		});
 
+
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
 			
 		});
 
 		req.flash('success_msg', 'You are registered and can now login');
-
+		console.log('tutaj')
 		res.redirect('/users/login');
 	}
 });

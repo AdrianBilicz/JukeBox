@@ -1,0 +1,16 @@
+#password{
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 1px #c9c9c9;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+    height: 3em;
+}
