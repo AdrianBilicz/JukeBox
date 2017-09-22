@@ -59,7 +59,7 @@ router.get('/', function(req, res, next) {
 			})
 
 
-		return res.render('index', {result: results});
+		return res.render('index', {result: results, errors: null});
 	}); 
 
 });

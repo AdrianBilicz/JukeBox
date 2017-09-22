@@ -39,9 +39,8 @@ router.post('/register', function(req, res){
 
 	if(errors){
 		console.log(errors)
-		res.render('register',{
-			errors:errors
-		});
+		req.flash('success_msg', 'Invalid Credentials');
+		return res.redirect('/')
 	} else {
 		var newUser = new User({
 			email:email,
@@ -56,7 +55,6 @@ router.post('/register', function(req, res){
 		});
 
 		req.flash('success_msg', 'You are registered and can now login');
-		console.log('tutaj')
 		res.redirect('/users/login');
 	}
 });
