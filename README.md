@@ -1,0 +1,1 @@
+In this project, I set up an app where users can upload mp3 files that can be streamed as audio by anyone who visits the user's page. Front-end for the public pages with standard HTML, CSS and jQuery. I also handle standard web app functionality such as registering new users, logging in/out, uploading tracks and images, admin dashboard and managing profile details.
